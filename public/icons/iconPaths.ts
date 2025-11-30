@@ -1,3 +1,3 @@
 export const iconPaths = {
-  logo: "/icons/svg/logo.svg",
+  logo: "/icons/image/logo.png",
 };

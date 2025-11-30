@@ -1,4 +1,4 @@
-import LandingHeader from "@/components/molecules/LandingHeader";
+import Header from "@/components/molecules/landing/layout/Header";
 import React from "react";
 
 const layout = ({
@@ -8,7 +8,7 @@ const layout = ({
 }>) => {
   return (
     <div className="">
-      <LandingHeader />
+      <Header />
       {children}
     </div>
   );
