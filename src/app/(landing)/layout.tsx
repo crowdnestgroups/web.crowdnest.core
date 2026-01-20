@@ -8,7 +8,6 @@ const layout = ({
 }>) => {
   return (
     <div className="">
-      <Header />
       {children}
     </div>
   );
