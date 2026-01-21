@@ -7,11 +7,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-const LoginPage = () => {
+export default function LoginPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-
-
 
       <motion.div
         className="absolute inset-0 opacity-20"
@@ -155,5 +153,5 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+
 

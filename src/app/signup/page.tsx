@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-const SignUpPage = () => {
+export default function SignUpPage()  {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -327,5 +327,3 @@ const SignUpPage = () => {
     </main>
   );
 };
-
-export default SignUpPage;
