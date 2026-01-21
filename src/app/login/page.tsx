@@ -9,8 +9,8 @@ import Link from "next/link";
 
 const LoginPage = () => {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Animated background elements */}
+    <main className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+
 
 
       <motion.div
@@ -19,9 +19,9 @@ const LoginPage = () => {
         animate={{ scale: 1.2, rotate: 360 }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       >
-        <div className="absolute top-10 left-10 w-32 h-32 bg-purple-500 rounded-full blur-xl"></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-blue-500 rounded-full blur-xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-indigo-500 rounded-full blur-xl"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-blue-600 rounded-full blur-xl"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-blue-700 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-blue-800 rounded-full blur-xl"></div>
       </motion.div>
 
       <motion.div
@@ -85,7 +85,7 @@ const LoginPage = () => {
                   type="email"
                   autoComplete="email"
                   required
-                  className="block w-full pl-12 pr-4 py-4 bg-white/20 border border-white/30 rounded-xl text-white placeholder-gray-300 focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-all backdrop-blur-sm"
+                  className="block outline-none focus:ring-1 transition duration-300 w-full pl-12 pr-4 py-4 bg-white/20  border border-white/30 rounded-xl text-white placeholder-gray-300 focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-all backdrop-blur-sm"
                   placeholder="your@email.com"
                 />
               </div>
@@ -104,7 +104,7 @@ const LoginPage = () => {
                 className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <Send className="h-5 w-5" />
-                Send OTP
+                Login
               </Button>
             </motion.div>
           </form>
@@ -124,24 +124,26 @@ const LoginPage = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Button
+                <Link href='signup'>
+                  <Button
                   variant="outline"
                   className="w-full py-4 px-6 rounded-xl font-semibold border-white/30 text-white bg-transparent hover:bg-white/10 hover:border-white/50 transition-all duration-300"
                 >
                   Create Account
                 </Button>
+                </Link>
               </motion.div>
-              <button className="transition-all text-white text-sm hover:underline mt-4 self-center duration-300 flex items-center justify-center">
+              <Link href='/' className="transition-all text-white hover:text-white/40 text-sm hover:underline mt-4 self-center duration-300 flex items-center justify-center">
                   <ArrowLeft className="mr-2 h-5 w-5 text-white" />
                   <span>Back to home</span>
-                </button>
+                </Link>
             </div>
           </motion.div>
         </motion.div>
 
         {/* Footer */}
         <motion.div
-          className="text-center text-sm text-gray-400"
+          className="text-center text-sm text-gray-300"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.5 }}
