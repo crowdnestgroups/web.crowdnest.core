@@ -2,18 +2,18 @@
 "use client"
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, Send,ArrowLeft } from "lucide-react";
+import { Mail, Send,ArrowLeft, Lock } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function LoginPage() {
   return (
-    <main className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <main className="min-h-screen bg-linear-to-br py-10 from-blue-50 to-indigo-100 flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
 
 
       <motion.div
-        className="max-w-md w-full space-y-8 relative z-10"
+        className="max-w-lg w-full space-y-8 relative z-10"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -48,12 +48,12 @@ export default function LoginPage() {
 
         {/* Login Form */}
         <motion.div
-          className="backdrop-blur-2xl bg-gradient-to-br from-blue-50/80 via-white/60 to-purple-50/80 rounded-3xl shadow-2xl p-8 border border-white/40"
+          className="backdrop-blur-2xl bg-gradient-to-br from-blue-50/80 via-white/60 to-purple-50/80 rounded-3xl shadow-2xl p-6 border border-white/40"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          <form className="space-y-6">
+          <form className="space-y-5">
             {/* Email Field */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -73,8 +73,31 @@ export default function LoginPage() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="block outline-none focus:ring-1 transition duration-300 w-full pl-12 pr-4 py-4 bg-gradient-to-r from-blue-50/50 to-purple-50/50 border border-blue-200/60 rounded-xl text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all backdrop-blur-md shadow-lg"
-                  placeholder="your@email.com"
+                  className="block outline-none focus:ring-1 transition duration-300 w-full pl-12 pr-4 py-3 bg-gradient-to-r from-blue-50/50 to-purple-50/50 border border-blue-200/60 rounded-xl text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all backdrop-blur-md shadow-lg"
+                />
+              </div>
+            </motion.div>
+
+            {/* Password Field */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+            >
+              <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-3">
+                Password
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <Lock className="h-5 w-5 text-blue-600" />
+                </div>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="current-password"
+                  required
+                  className="block outline-none focus:ring-1 transition duration-300 w-full pl-12 pr-4 py-3 bg-gradient-to-r from-blue-50/50 to-purple-50/50 border border-blue-200/60 rounded-xl text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all backdrop-blur-md shadow-lg"
                 />
               </div>
             </motion.div>
@@ -89,7 +112,7 @@ export default function LoginPage() {
             >
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 border border-white/20"
+                className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white py-3 px-6 rounded-xl font-semibold text-base shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 border border-white/20"
               >
                 <Send className="h-5 w-5 text-white" />
                 Login
@@ -115,7 +138,7 @@ export default function LoginPage() {
                 <Link href='signup'>
                   <Button
                   variant="outline"
-                  className="w-full py-4 px-6 rounded-xl font-semibold border-blue-300/60 text-blue-800 bg-gradient-to-r from-blue-50/40 to-purple-50/40 hover:from-blue-100/60 hover:to-purple-100/60 hover:border-blue-400/80 transition-all duration-300 backdrop-blur-sm shadow-md hover:shadow-lg"
+                  className="w-full py-3 px-6 rounded-xl font-semibold border-blue-300/60 text-blue-800 bg-gradient-to-r from-blue-50/40 to-purple-50/40 hover:from-blue-100/60 hover:to-purple-100/60 hover:border-blue-400/80 transition-all duration-300 backdrop-blur-sm shadow-md hover:shadow-lg"
                 >
                   Create Account
                 </Button>

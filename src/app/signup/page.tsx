@@ -1,22 +1,21 @@
 "use client"
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, Send, ArrowLeft, User, Lock, Eye, EyeOff, Users, DollarSign, Shield, CheckCircle } from "lucide-react";
+import { Mail, Send, ArrowLeft, User, Lock, Eye, EyeOff, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function SignUpPage()  {
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
-    <main className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 relative overflow-hidden">
+    <main className="min-h-screen py-10 bg-linear-to-br from-blue-50 to-indigo-100 relative overflow-hidden">
       
-      <div className="flex min-h-screen items-center justify-center container mx-auto">
+      <div className="flex min-h-screen items-center justify-center container mx-auto max-w-6xl">
         {/* Left Panel */}
         <motion.div
-          className="hidden lg:flex lg:w-1/2 flex-col justify-center px-12 relative z-10"
+          className="hidden lg:flex lg:w-1/2 flex-col justify-center px-8 relative z-10"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -30,13 +29,13 @@ export default function SignUpPage()  {
               <Image
                 src="/icons/image/logo.png"
                 alt="CrowdNest Logo"
-                width={100}
-                height={100}
+                width={80}
+                height={80}
                 className="rounded-full shadow-2xl"
               />
             </motion.div>
             <motion.h1
-              className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+              className="text-3xl lg:text-4xl font-bold text-gray-900 mb-5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
@@ -44,7 +43,7 @@ export default function SignUpPage()  {
               Build Transparent Communities
             </motion.h1>
             <motion.p
-              className="text-xl text-gray-600 mb-8"
+              className="text-lg text-gray-600 mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
@@ -54,7 +53,7 @@ export default function SignUpPage()  {
 
             {/* Features */}
             <motion.div
-              className="space-y-4"
+              className="space-y-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
@@ -77,12 +76,12 @@ export default function SignUpPage()  {
 
         {/* Right Panel - Form */}
         <motion.div
-          className="w-full lg:w-1/2 flex items-center justify-center px-4 sm:px-6 lg:px-12 py-12 relative z-10"
+          className="w-full flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-12 py-12 relative z-10"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="max-w-lg w-full">
+          <div className="max-w-xl w-full">
             {/* Mobile Logo */}
             <motion.div
               className="lg:hidden text-center mb-8"
@@ -114,136 +113,125 @@ export default function SignUpPage()  {
 
             {/* Sign Up Form */}
             <motion.div
-              className="backdrop-blur-2xl bg-gradient-to-br from-blue-50/80 via-white/60 to-purple-50/80 rounded-3xl shadow-2xl p-8 border border-white/40"
+              className="backdrop-blur-2xl bg-gradient-to-br from-blue-50/80 via-white/60 to-purple-50/80 rounded-3xl shadow-2xl p-6 border border-white/40"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <form className="space-y-6">
-                {/* Form Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Full Name Field */}
+              <form className="space-y-5">
+                {/* First Name and Last Name Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* First Name Field */}
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5, duration: 0.5 }}
                   >
-                    <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-3">
-                      Full Name
+                    <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-3">
+                      First Name
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                        <User className="h-5 w-5 text-black" />
+                        <User className="h-5 w-5 text-blue-600" />
                       </div>
                       <input
-                        id="name"
-                        name="name"
+                        id="firstName"
+                        name="firstName"
                         type="text"
-                        autoComplete="name"
+                        autoComplete="given-name"
                         required
-                        className="block outline-none focus:ring-1 transition duration-300 w-full pl-12 pr-4 py-4 bg-gradient-to-r from-blue-50/50 to-purple-50/50 border border-blue-200/60 rounded-xl text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all backdrop-blur-md shadow-lg"
-                        placeholder="Your full name"
+                        className="block outline-none focus:ring-1 transition duration-300 w-full pl-12 pr-4 py-3 bg-gradient-to-r from-blue-50/50 to-purple-50/50 border border-blue-200/60 rounded-xl text-gray-900 placeholder-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all backdrop-blur-md shadow-lg"
+
                       />
                     </div>
                   </motion.div>
 
-                  {/* Email Field */}
+                  {/* Last Name Field */}
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.6, duration: 0.5 }}
                   >
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-3">
-                      Email Address
+                    <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-3">
+                      Last Name
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                        <Mail className="h-5 w-5 text-blue-600" />
+                        <User className="h-5 w-5 text-blue-600" />
                       </div>
                       <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
+                        id="lastName"
+                        name="lastName"
+                        type="text"
+                        autoComplete="family-name"
                         required
-                        className="block outline-none focus:ring-1 transition duration-300 w-full pl-12 pr-4 py-4 bg-gradient-to-r from-blue-50/50 to-purple-50/50 border border-blue-200/60 rounded-xl text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all backdrop-blur-md shadow-lg"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </motion.div>
+                        className="block outline-none focus:ring-1 transition duration-300 w-full pl-12 pr-4 py-3 bg-gradient-to-r from-blue-50/50 to-purple-50/50 border border-blue-200/60 rounded-xl text-gray-900 placeholder-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all backdrop-blur-md shadow-lg"
 
-                  {/* Password Field */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.7, duration: 0.5 }}
-                  >
-                    <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-3">
-                      Password
-                    </label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                        <Lock className="h-5 w-5 text-blue-600" />
-                      </div>
-                      <input
-                        id="password"
-                        name="password"
-                        type={showPassword ? "text" : "password"}
-                        autoComplete="new-password"
-                        required
-                        className="block outline-none focus:ring-1 transition duration-300 w-full pl-12 pr-12 py-4 bg-gradient-to-r from-blue-50/50 to-purple-50/50 border border-blue-200/60 rounded-xl text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all backdrop-blur-md shadow-lg"
-                        placeholder="Create password"
                       />
-                      <button
-                        type="button"
-                        className="absolute inset-y-0 right-0 pr-4 flex items-center"
-                        onClick={() => setShowPassword(!showPassword)}
-                      >
-                        {showPassword ? (
-                          <EyeOff className="h-5 w-5 text-gray-500" />
-                        ) : (
-                          <Eye className="h-5 w-5 text-gray-500" />
-                        )}
-                      </button>
-                    </div>
-                  </motion.div>
-
-                  {/* Confirm Password Field */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.8, duration: 0.5 }}
-                  >
-                    <label htmlFor="confirmPassword" className="block text-sm font-semibold text-gray-700 mb-3">
-                      Confirm Password
-                    </label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                        <Lock className="h-5 w-5 text-blue-600" />
-                      </div>
-                      <input
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        type={showConfirmPassword ? "text" : "password"}
-                        autoComplete="new-password"
-                        required
-                        className="block outline-none focus:ring-1 transition duration-300 w-full pl-12 pr-12 py-4 bg-gradient-to-r from-blue-50/50 to-purple-50/50 border border-blue-200/60 rounded-xl text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all backdrop-blur-md shadow-lg"
-                        placeholder="Confirm password"
-                      />
-                      <button
-                        type="button"
-                        className="absolute inset-y-0 right-0 pr-4 flex items-center"
-                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      >
-                        {showConfirmPassword ? (
-                          <EyeOff className="h-5 w-5 text-gray-500" />
-                        ) : (
-                          <Eye className="h-5 w-5 text-gray-500" />
-                        )}
-                      </button>
                     </div>
                   </motion.div>
                 </div>
+
+                {/* Email Field - Full Width */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.7, duration: 0.5 }}
+                >
+                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-3">
+                    Email Address
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                      <Mail className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      className="block outline-none focus:ring-1 transition duration-300 w-full pl-12 pr-4 py-3 bg-gradient-to-r from-blue-50/50 to-purple-50/50 border border-blue-200/60 rounded-xl text-gray-900 placeholder-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all backdrop-blur-md shadow-lg"
+
+                    />
+                  </div>
+                </motion.div>
+
+                {/* Password Field - Full Width */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.8, duration: 0.5 }}
+                >
+                  <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-3">
+                    Password
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                      <Lock className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <input
+                      id="password"
+                      name="password"
+                      type={showPassword ? "text" : "password"}
+                      autoComplete="new-password"
+                      required
+                      className="block outline-none focus:ring-1 transition duration-300 w-full pl-12 pr-12 py-3 bg-gradient-to-r from-blue-50/50 to-purple-50/50 border border-blue-200/60 rounded-xl text-gray-900 placeholder-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all backdrop-blur-md shadow-lg"
+
+                    />
+                    <button
+                      type="button"
+                      className="absolute inset-y-0 right-0 pr-4 flex items-center"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? (
+                        <EyeOff className="h-5 w-5 text-gray-500" />
+                      ) : (
+                        <Eye className="h-5 w-5 text-gray-500" />
+                      )}
+                    </button>
+                  </div>
+                </motion.div>
 
                 {/* Sign Up Button */}
                 <motion.div
@@ -255,7 +243,7 @@ export default function SignUpPage()  {
                 >
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 border border-white/20"
+                    className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white py-3 px-6 rounded-xl font-semibold text-base shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 border border-white/20"
                   >
                     <Send className="h-5 w-5 text-white" />
                     Create Account
@@ -280,7 +268,7 @@ export default function SignUpPage()  {
                   >
                     <Button
                       variant="outline"
-                      className="w-full py-4 px-6 rounded-xl font-semibold border-blue-300/60 text-blue-800 bg-gradient-to-r from-blue-50/40 to-purple-50/40 hover:from-blue-100/60 hover:to-purple-100/60 hover:border-blue-400/80 transition-all duration-300 backdrop-blur-sm shadow-md hover:shadow-lg"
+                      className="w-full py-3 px-6 rounded-xl font-semibold border-blue-300/60 text-blue-800 bg-gradient-to-r from-blue-50/40 to-purple-50/40 hover:from-blue-100/60 hover:to-purple-100/60 hover:border-blue-400/80 transition-all duration-300 backdrop-blur-sm shadow-md hover:shadow-lg"
                     >
                       <Link href="/login" className="flex items-center justify-center gap-2">
                         <ArrowLeft className="h-5 w-5 text-blue-600" />
