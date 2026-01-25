@@ -1,8 +1,7 @@
 
 "use client"
-import React from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, Send,ArrowLeft, Lock } from "lucide-react";
+import { Mail, Send, ArrowLeft, Lock } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -137,17 +136,17 @@ export default function LoginPage() {
               >
                 <Link href='signup'>
                   <Button
-                  variant="outline"
-                  className="w-full py-3 px-6 rounded-xl font-semibold border-blue-300/60 text-blue-800 bg-gradient-to-r from-blue-50/40 to-purple-50/40 hover:from-blue-100/60 hover:to-purple-100/60 hover:border-blue-400/80 transition-all duration-300 backdrop-blur-sm shadow-md hover:shadow-lg"
-                >
-                  Create Account
-                </Button>
+                    variant="outline"
+                    className="w-full py-3 px-6 rounded-xl font-semibold border-blue-300/60 text-blue-800 bg-gradient-to-r from-blue-50/40 to-purple-50/40 hover:from-blue-100/60 hover:to-purple-100/60 hover:border-blue-400/80 transition-all duration-300 backdrop-blur-sm shadow-md hover:shadow-lg"
+                  >
+                    Create Account
+                  </Button>
                 </Link>
               </motion.div>
               <Link href='/' className="transition-all text-gray-600 hover:text-gray-800 text-sm hover:underline mt-4 self-center duration-300 flex items-center justify-center">
-                  <ArrowLeft className="mr-2 h-5 w-5 text-gray-600" />
-                  <span>Back to home</span>
-                </Link>
+                <ArrowLeft className="mr-2 h-5 w-5 text-gray-600" />
+                <span>Back to home</span>
+              </Link>
             </div>
           </motion.div>
         </motion.div>

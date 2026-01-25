@@ -131,8 +131,8 @@ const Header = () => {
 
           {/* Desktop CTA Button */}
           <div className="hidden md:block">
-            <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-              Get Started
+            <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
+              <Link href="/signup">Get Started</Link>
             </Button>
           </div>
 
@@ -184,11 +184,10 @@ const Header = () => {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen
+        className={`md:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen
             ? "max-h-screen opacity-100"
             : "max-h-0 opacity-0 overflow-hidden"
-        }`}
+          }`}
       >
         <div className="px-4 pt-2 pb-6 space-y-1 bg-white border-t">
           {/* Collections Menu */}
@@ -199,9 +198,8 @@ const Header = () => {
             >
               Collections
               <svg
-                className={`ml-2 h-5 w-5 transform transition-transform ${
-                  openMobileSubmenu === "collections" ? "rotate-180" : ""
-                }`}
+                className={`ml-2 h-5 w-5 transform transition-transform ${openMobileSubmenu === "collections" ? "rotate-180" : ""
+                  }`}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -245,9 +243,8 @@ const Header = () => {
             >
               Donations
               <svg
-                className={`ml-2 h-5 w-5 transform transition-transform ${
-                  openMobileSubmenu === "donations" ? "rotate-180" : ""
-                }`}
+                className={`ml-2 h-5 w-5 transform transition-transform ${openMobileSubmenu === "donations" ? "rotate-180" : ""
+                  }`}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
