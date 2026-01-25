@@ -7,10 +7,12 @@ import KeyBenefits from "@/components/molecules/landing/layout/KeyBenefits";
 import CoreFeatures from "@/components/molecules/landing/layout/CoreFeatures";
 import ProductSummary from "@/components/molecules/landing/layout/ProductSummary";
 import Footer from "@/components/molecules/landing/layout/Footer";
+import Header from "@/components/molecules/landing/layout/Header"
 
 export default function Home() {
   return (
     <main>
+      <Header />
       <Hero />
       <PaymentRecordStructure />
       <TransparencyFeed />
