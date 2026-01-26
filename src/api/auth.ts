@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import https from "@/lib/axios";
 
 export const useLoginMutation = () => {
-  const result = useMutation<IServerResponse<{ accessToken: string }>, Error, { email: string }>({
+  const result = useMutation<IServerResponse<{ accessToken: string }>, Error, { email: string, password: string }>({
     mutationFn: async (data) => {
       const response = await https.post("/auth/sign-in", data);
       return response.data;
@@ -46,7 +46,7 @@ export const useOnboardMutation = () => {
   const result = useMutation<IServerResponse<{
     accessToken: string,
     user: IUser
-  }>, Error, { email: string }>({
+  }>, Error, { password: string, first_name: string, last_name: string, phone_number: string, gender: string, date_of_birth: string }>({
     mutationFn: async (data) => {
       const response = await https.post("/auth/onboard-user", data);
       return response.data;

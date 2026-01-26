@@ -8,7 +8,7 @@ import { z } from "zod";
 import { Eye, EyeOff } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-interface FormFieldProps<T extends z.ZodType> extends InputHTMLAttributes<HTMLInputElement> {
+interface FormFieldProps<T extends z.ZodType> extends Omit<InputHTMLAttributes<HTMLInputElement>, 'prefix'> {
     control: Control<z.infer<T>>;
     name: FieldPath<z.infer<T>>;
     label: string;
@@ -18,6 +18,8 @@ interface FormFieldProps<T extends z.ZodType> extends InputHTMLAttributes<HTMLIn
     isCurrency?: boolean;
     currencySymbol?: string;
     decimalPlaces?: number;
+
+    prefix?: React.ReactNode;
 }
 
 export const FormInput = <T extends z.ZodType>({
@@ -33,6 +35,7 @@ export const FormInput = <T extends z.ZodType>({
     isCurrency,
     currencySymbol,
     decimalPlaces,
+    prefix,
     ...props
 }: FormFieldProps<T>) => {
     const [showPassword, setShowPassword] = useState(false);
@@ -75,8 +78,8 @@ export const FormInput = <T extends z.ZodType>({
             render={({ field }) => (
                 <div className={cn("relative my-[29px]", contentClassName)}>
                     <div className="form-item">
-                        <div className="flex w-full flex-col">
-                            <FormLabel htmlFor={name} className="form-label bz-paragraph-3">
+                        <div className="flex w-full flex-col gap-2">
+                            <FormLabel htmlFor={name} className="text-sm font-semibold text-gray-700">
                                 {label}
                             </FormLabel>
                             <FormControl>
@@ -84,10 +87,16 @@ export const FormInput = <T extends z.ZodType>({
                                     {isCurrency && (
                                         <span className="absolute left-0 text-gray-500">{currencySymbol ?? "₦"}</span>
                                     )}
+                                    {prefix && (
+                                        <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 flex items-center pointer-events-none">
+                                            {prefix}
+                                        </div>
+                                    )}
                                     <Input
                                         className={cn(
                                             "input-class bz-paragraph-1 [&:-webkit-autofill]:!text-base-content border-0 [&:-webkit-autofill]:!bg-transparent [&:-webkit-autofill]:!shadow-[0_0_0_30px_white_inset]",
-                                            isCurrency ? "pl-4" : ""
+                                            isCurrency ? "pl-4" : "",
+                                            prefix ? "pl-12" : ""
                                         )}
                                         {...field}
                                         type={inputType}
