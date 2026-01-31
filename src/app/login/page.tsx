@@ -11,19 +11,26 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "@/lib/validators/auth";
 import { Form } from "@/components/ui/form";
 import { FormInput } from "@/components/ui/custom/FormInput";
+import { useToast } from "@/providers/ToastContextProvider";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const { mutateAsync: login } = useLoginMutation();
+  const { mutateAsync: login, isPending } = useLoginMutation();
+  const router = useRouter();
+  const toast = useToast();
   const form = useForm<{ email: string, password: string }>({
     resolver: zodResolver(loginSchema),
     mode: "onTouched"
   });
-  const { register, handleSubmit, formState: { errors } } = form;
-  const onSubmit = handleSubmit((data) => login(data));
+  const { handleSubmit } = form;
+  const onSubmit = handleSubmit((data) => login(data).then(() => {
+    toast.showSuccess("Login successful");
+    router.push("/dashboard");
+  }).catch((error) => {
+    toast.showError(error.message);
+  }));
   return (
     <main className="min-h-screen bg-linear-to-br py-10 from-blue-50 to-indigo-100 flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-
-
       <motion.div
         className="max-w-lg w-full space-y-8 relative z-10"
         initial={{ opacity: 0, y: 50 }}
@@ -112,6 +119,8 @@ export default function LoginPage() {
                 whileTap={{ scale: 0.98 }}
               >
                 <Button
+                  loading={isPending}
+                  disabled={isPending}
                   type="submit"
                   className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white py-3 px-6 rounded-xl font-semibold text-base shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 border border-white/20"
                 >

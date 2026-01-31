@@ -13,7 +13,7 @@ export const useLoginMutation = () => {
 };
 
 export const useSignUpMutation = () => {
-  const result = useMutation<IServerResponse, Error, { email: string }>({
+  const result = useMutation<IServerResponse, Error, { email: string, password: string }>({
     mutationFn: async (data) => {
       const response = await https.post("/auth/sign-up", data);
       return response.data;

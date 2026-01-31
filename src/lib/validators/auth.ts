@@ -10,15 +10,20 @@ export const passwordSchema = z
     .regex(/[^a-zA-Z0-9]/, "Password must contain at least one special character");
 
 export const emailSchema = z.object({
-    email: z.string().email("Invalid email"),
+    email: z.email("Invalid email"),
 });
 
 export const loginSchema = z.object({
-    email: z.string().email("Invalid email"),
+    email: z.email("Invalid email"),
     password: z.string().nonempty("Password is required"),
 });
 
-export const userSchema = z.object({
+export const signupSchema = z.object({
+    email: z.email("Invalid email"),
+    password: passwordSchema,
+});
+
+export const onboardingSchema = z.object({
     phone_number: z.string(),
     first_name: z.string().min(1, "First name is required"),
     last_name: z.string().min(1, "Last name is required"),
