@@ -1,6 +1,6 @@
-import { Icon } from "../Icon";
+import { Icon } from "@/components/ui/Icon";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
-import { Button } from "../button";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { PopoverTriggerProps } from "@radix-ui/react-popover";
 import { Ellipsis } from "lucide-react";

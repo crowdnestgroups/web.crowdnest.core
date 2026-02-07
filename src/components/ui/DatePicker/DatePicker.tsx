@@ -7,7 +7,7 @@ import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { Popover } from "./popover";
+import PopOver, { PopOverProps } from "@/components/ui/custom/PopOver";
 
 interface DatePickerProps extends Omit<PopOverProps, "children"> {
   header?: boolean;

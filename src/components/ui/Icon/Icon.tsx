@@ -1,4 +1,4 @@
-import { iconPaths } from "../../../public/icons/iconPaths";
+import { iconPaths } from "../../../../public/icons/iconPaths";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 

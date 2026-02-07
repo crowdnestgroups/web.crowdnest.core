@@ -67,7 +67,7 @@ export default function LoginPage() {
 
         {/* Login Form */}
         <motion.div
-          className="backdrop-blur-2xl bg-gradient-to-br from-blue-50/80 via-white/60 to-purple-50/80 rounded-3xl shadow-2xl p-6 border border-white/40"
+          className="backdrop-blur-2xl bg-linear-to-br from-blue-50/80 via-white/60 to-purple-50/80 rounded-3xl shadow-2xl p-6 border border-white/40"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
@@ -122,7 +122,7 @@ export default function LoginPage() {
                   loading={isPending}
                   disabled={isPending}
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white py-3 px-6 rounded-xl font-semibold text-base shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 border border-white/20"
+                  className="w-full bg-linear-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white py-3 px-6 rounded-xl font-semibold text-base shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 border border-white/20"
                 >
                   <Send className="h-5 w-5 text-white" />
                   Login
@@ -149,7 +149,7 @@ export default function LoginPage() {
                 <Link href='signup'>
                   <Button
                     variant="outline"
-                    className="w-full py-3 px-6 rounded-xl font-semibold border-blue-300/60 text-blue-800 bg-gradient-to-r from-blue-50/40 to-purple-50/40 hover:from-blue-100/60 hover:to-purple-100/60 hover:border-blue-400/80 transition-all duration-300 backdrop-blur-sm shadow-md hover:shadow-lg"
+                    className="w-full py-3 px-6 rounded-xl font-semibold border-blue-300/60 text-blue-800 bg-linear-to-r from-blue-50/40 to-purple-50/40 hover:from-blue-100/60 hover:to-purple-100/60 hover:border-blue-400/80 transition-all duration-300 backdrop-blur-sm shadow-md hover:shadow-lg"
                   >
                     Create Account
                   </Button>

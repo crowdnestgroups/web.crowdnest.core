@@ -5,7 +5,7 @@ import { Mail, Send, ArrowLeft, User, Lock, Eye, EyeOff, CheckCircle } from "luc
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useSignUpMutation } from "@/api/auth";
+import { useOnboardMutation, useSignUpMutation } from "@/api/auth";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signupSchema } from "@/lib/validators/auth";
@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 import { useToast } from "@/providers/ToastContextProvider";
 
 export default function OnboardPage() {
-  const { mutateAsync: signup, isPending } = useSignUpMutation();
+  const { mutateAsync: onboard, isPending } = useOnboardMutation();
   const router = useRouter();
   const toast = useToast();
   const form = useForm<{ email: string, password: string }>({
@@ -21,7 +21,7 @@ export default function OnboardPage() {
     mode: "onTouched"
   });
   const { handleSubmit } = form;
-  const onSubmit = handleSubmit((data) => signup(data).then(() => {
+  const onSubmit = handleSubmit((data) => onboard(data).then(() => {
     toast.showSuccess("Signup successful");
     router.push("/dashboard");
   }).catch((error) => {

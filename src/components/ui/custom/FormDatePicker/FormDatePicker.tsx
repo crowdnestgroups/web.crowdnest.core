@@ -1,10 +1,10 @@
 "use client";
 
-import { FormControl, FormField, FormLabel, FormMessage } from "../form";
+import { FormControl, FormField, FormLabel, FormMessage } from "@/components/ui/form";
 import { Control, FieldPath } from "react-hook-form";
 import { z } from "zod";
 import { CalendarIcon } from "lucide-react";
-import { Input } from "../input";
+import { Input } from "@/components/ui/input";
 
 interface FormFieldProps<T extends z.ZodType> {
     control: Control<z.infer<T>>;

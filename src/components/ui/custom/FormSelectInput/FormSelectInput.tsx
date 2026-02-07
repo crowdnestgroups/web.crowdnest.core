@@ -5,13 +5,13 @@ import {
     FormField,
     FormLabel,
     FormMessage,
-} from "../form";
+} from "@/components/ui/form";
 import { Control, FieldPath } from "react-hook-form";
 import { z } from "zod";
 import { cn, truncateText } from "@/lib/utils";
 import { SelectProps } from "@radix-ui/react-select";
 import { useState } from "react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface FormFieldProps<T extends z.ZodType> extends SelectProps {
     control: Control<z.infer<T>>;
